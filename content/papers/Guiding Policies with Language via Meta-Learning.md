@@ -28,7 +28,7 @@ title: "Guiding Policies with Language via Meta-Learning"
 
 **Model:**
 
-![Screenshot 2019-02-26 at 23.13.35.png](/papers/attachments/e33ef43b.png)
+![Screenshot 2019-02-26 at 23.13.35.png](/attachments/e33ef43b.png)
 * Instructions are provided as a sequence of words which are converted into a sequence of word embeddings.
 * Each previous trajectory is processed by a 1D CNN to generated a trajectory embedding. The correction $C_i$, similar to the language description is converted into a sequence of word-embeddings.
 * Policy module has to integrate the high level description embedded into $Z_{im}$, the actionable changes from the correction module $Z_{cm}$ and environment state _s_ to generated the right action

@@ -27,20 +27,20 @@ draft: false
   * Examine the contextual relationship between these causal objects and the image background. Observe how manipulating these causal objects affects the image overall.
   * Insert these causal units related to an object concepts into new networks and observe the result.
   * Related to identifying object concepts, identify causal units which generate artifacts and attempt to rectify the problem
-![Screenshot 2019-06-04 at 22.00.23.png](/papers/attachments/0163a8e5.png)
+![Screenshot 2019-06-04 at 22.00.23.png](/attachments/0163a8e5.png)
  
  ## Dissection
 
  * Compare the upsampled heat map generated from the features with the semantic segmented object from the image.
  * If the agreement with the images is greater than a calculated threshold then the features are said to be related to the object
-![Screenshot 2019-06-04 at 22.10.06.png](/papers/attachments/525b4e98.png)
+![Screenshot 2019-06-04 at 22.10.06.png](/attachments/525b4e98.png)
 
 ## Intervention
 
 * With the feature units identified, start manipulating these units and observe the changes in the image generated
 * The causal effects of forcing the units on and off is observed and measured.
 * Causal effect is the average difference in pixels of the object being focussed on.
-![Screenshot 2019-06-04 at 22.12.29.png](/papers/attachments/576dcf6e.png)
+![Screenshot 2019-06-04 at 22.12.29.png](/attachments/576dcf6e.png)
 
 ## Method
 

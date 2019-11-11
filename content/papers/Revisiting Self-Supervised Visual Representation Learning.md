@@ -36,7 +36,7 @@ Paper deals with aspects of self-supervised learning that have been not research
 
 **Experimental Results**
 
-![Screenshot 2019-03-15 at 23.29.50.png](/papers/attachments/695d3b00.png)
+![Screenshot 2019-03-15 at 23.29.50.png](/attachments/695d3b00.png)
 
 * Similar models often learn self-supervised visual representations that make them significantly different in performance
 * The rankings of architectures across the self-supervised tasks is not consistent. The ranking of methods across the architectures is also not consistent
