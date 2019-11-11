@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Paper a Week</title>
-    <link>http://example.org/categories/</link>
+    <link>https://snd96.github.io/paper-a-week/categories/</link>
     <description>Recent content in Categories on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://snd96.github.io/paper-a-week/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
