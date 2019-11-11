@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | Revisiting Self-Supervised Visual Representation Learning</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Revisiting Self-Supervised Visual Representation Learning" />
+<meta property="og:description" content="Revisiting Self-Supervised Visual Representation Learning Problem:
+Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.
+Self Supervision:
+ Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks Requires only unlabled data in order to formulate a pretext learning task such as predicting context Pretext tasks must be designed in such a way that high level understanding is useful for solving them  Architecture of CNN models:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/papers/revisiting-self-supervised-visual-representation-learning/" />
+<meta property="article:published_time" content="2019-11-03T08:47:11+01:00" />
+<meta property="article:modified_time" content="2019-11-03T08:47:11+01:00" />
+<meta itemprop="name" content="Revisiting Self-Supervised Visual Representation Learning">
+<meta itemprop="description" content="Revisiting Self-Supervised Visual Representation Learning Problem:
+Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.
+Self Supervision:
+ Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks Requires only unlabled data in order to formulate a pretext learning task such as predicting context Pretext tasks must be designed in such a way that high level understanding is useful for solving them  Architecture of CNN models:">
+
+
+<meta itemprop="datePublished" content="2019-11-03T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2019-11-03T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="457">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Revisiting Self-Supervised Visual Representation Learning"/>
+<meta name="twitter:description" content="Revisiting Self-Supervised Visual Representation Learning Problem:
+Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.
+Self Supervision:
+ Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks Requires only unlabled data in order to formulate a pretext learning task such as predicting context Pretext tasks must be designed in such a way that high level understanding is useful for solving them  Architecture of CNN models:"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://example.org/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">Revisiting Self-Supervised Visual Representation Learning</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-03T08:47:11&#43;01:00">November 3, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="revisiting-selfsupervised-visual-representation-learning">Revisiting Self-Supervised Visual Representation Learning</h1>
+
+<p><strong>Problem:</strong></p>
+
+<p>Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.</p>
+
+<p><strong>Self Supervision:</strong></p>
+
+<ul>
+<li>Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks</li>
+<li>Requires only unlabled data in order to formulate a pretext learning task such as predicting context</li>
+<li>Pretext tasks must be designed in such a way that high level understanding is useful for solving them</li>
+</ul>
+
+<p><strong>Architecture of CNN models:</strong></p>
+
+<ul>
+<li>Paper evaluates self-supervised technique in the image domain and hence focusses on the use of CNNs.</li>
+<li>Uses variants of <em>ResNet</em> and a batch normalized <em>VGG</em> architecture.</li>
+</ul>
+
+<p><strong>Self-supervised techniques</strong></p>
+
+<ol>
+<li><strong>Rotation</strong>: Produce 4 copies of single image by rotating it by {0 <span  class="math">\(^\text{o}\)</span> , 90<span  class="math">\(^\text{o}\)</span>, 180<span  class="math">\(^\text{o}\)</span>, 270<span  class="math">\(^\text{o}\)</span>} and tasks the model with classifying the rotation.</li>
+<li><strong>Exemplar</strong>: Individual images correspond to their own class and other members of the class are generated by heavy random data augmentation such as translation, scaling, rotation and contrast and color shifts. Uses a triplet loss whcih encourages examples of the same image to have representations that are close in the Euclidean space</li>
+<li><strong>Jigsaw</strong>: Model has to recover relative spatial position of 9 randomly sampled iamge patches after a random permutation of these was performed</li>
+<li><strong>Relative patch location</strong>: Model is similar to the Jigsaw one. Receives two patch of an image and needs to predict one of the 8 possible spatial relations between the two patches</li>
+</ol>
+
+<p><strong>Evaluation of Learned Visual Representations:</strong></p>
+
+<ul>
+<li>The learned representations are evaluated by using them in downstream tasks. The tasks used in this paper are multiclass image classifcation tasks.</li>
+<li>Datasets used are <em>ImageNet</em> and <em>Places205</em></li>
+</ul>
+
+<p><strong>Experimental Results</strong></p>
+
+<p><figure><img src="/papers/attachments/695d3b00.png" alt="Screenshot 2019-03-15 at 23.29.50.png"></figure></p>
+
+<ul>
+<li>Similar models often learn self-supervised visual representations that make them significantly different in performance</li>
+<li>The rankings of architectures across the self-supervised tasks is not consistent. The ranking of methods across the architectures is also not consistent</li>
+<li>One clear observation is that increasing number of channels in CNN models imrorves performance of the self-supervised models. This is similar to supervised model methods</li>
+</ul>
+
+<p><strong>Observations:</strong></p>
+
+<ul>
+<li>Better performance on pretext task does not always translate to better representations</li>
+<li>Good performance is useful as an evaluation of potential of the model but only after the model has been fixed.</li>
+<li>This can't be used to reliably select the model architecture</li>
+<li>Skip connection prevent degradation of representation quality towards the ends of CNNs.
+
+<ul>
+<li>Authors believe this happens because the model overfit to the pretext task in the later layers and disscard more general semantic features present in the middle layers</li>
+<li>This holds true only for <em>VGG</em> and not for <em>ResNet</em>. Authors believe that this is a result of <em>ResnNet</em>'s residual units being invertible under some conditions</li>
+</ul></li>
+<li>Model width and representation size positively influence the representation quality when the sizes are increased.</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy; 2019 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

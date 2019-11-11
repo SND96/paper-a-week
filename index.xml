@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper a Week</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Paper a Week</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Nov 2019 08:47:11 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Revisiting Self-Supervised Visual Representation Learning</title>
+      <link>http://example.org/papers/revisiting-self-supervised-visual-representation-learning/</link>
+      <pubDate>Sun, 03 Nov 2019 08:47:11 +0100</pubDate>
+      
+      <guid>http://example.org/papers/revisiting-self-supervised-visual-representation-learning/</guid>
+      <description>Revisiting Self-Supervised Visual Representation Learning Problem:
+Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.
+Self Supervision:
+ Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks Requires only unlabled data in order to formulate a pretext learning task such as predicting context Pretext tasks must be designed in such a way that high level understanding is useful for solving them  Architecture of CNN models:</description>
+    </item>
+    
+    <item>
+      <title>Learning Unsupervised Learning Rules</title>
+      <link>http://example.org/papers/learning-unsupervised-learning/</link>
+      <pubDate>Sun, 27 Oct 2019 08:47:11 +0100</pubDate>
+      
+      <guid>http://example.org/papers/learning-unsupervised-learning/</guid>
+      <description>Learning Unsupervised Learning Rules https://arxiv.org/pdf/1804.00222.pdf
+Problem
+ Unsupervised learning has yet to fulfil the potential of being powerful in situations with limited labelled data. Ideally learned representations should integrate high level attributes of data in the representations generated. However, possibly due to utilising incorrect target tasks during training, useful representations are only produced as a side effect.  Solution
+ Use a semi-supervised task (meta objective) to help build improve the quality of representations using the unsupervised model.</description>
+    </item>
+    
+    <item>
+      <title>GAN Dissection</title>
+      <link>http://example.org/papers/gan-dissection/</link>
+      <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
+      
+      <guid>http://example.org/papers/gan-dissection/</guid>
+      <description>GAN Dissection Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
+    </item>
+    
+    <item>
+      <title>Guiding Policies with Language via Meta-Learning</title>
+      <link>http://example.org/papers/guiding-policies-with-language-via-meta-learning/</link>
+      <pubDate>Sun, 13 Oct 2019 08:47:11 +0100</pubDate>
+      
+      <guid>http://example.org/papers/guiding-policies-with-language-via-meta-learning/</guid>
+      <description>Guiding Policies with Language via Meta-Learning Problem:
+ Reward functions and imitation learning have disadvantages for policy learning Reward functions require manual engineering while demonstrations require a human expert to be able to perform the task  Solution:
+ Natural language instructions can overcome those disadvantages by being able to specify in detail the goals of the agent However, one instruction would not be enough so it is proposed that iterative language corrections are provided to an agent.</description>
+    </item>
+    
+  </channel>
+</rss>
