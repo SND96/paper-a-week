@@ -6,10 +6,21 @@
     <description>Recent content on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2019 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Finding Friend or Foe in Multi-Agent Games</title>
+      <link>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</link>
+      <pubDate>Sun, 10 Nov 2019 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</guid>
+      <description>Finding Friend or Foe in Multi-Agent Games https://arxiv.org/pdf/1906.02330.pdf
+Problem
+ There have been multiple breakthroughs in multi-agent games in recent research, however none of these games deal with the scenario where co-operation is with unknown team mates is uncertain. In games like Dota and Capture the Flag there is no ambiguity on who to co-operate with. In hidden role games like The Resistance: Avalon, discovering the roles of each player is a challenging task with similarities to deception games like poker.</description>
+    </item>
     
     <item>
       <title>Revisiting Self-Supervised Visual Representation Learning</title>
@@ -36,13 +47,12 @@ Problem
     </item>
     
     <item>
-      <title>Finding Friend or Foe in Multi-Agent Games</title>
-      <link>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</link>
+      <title>GAN Dissection</title>
+      <link>https://snd96.github.io/paper-a-week/papers/gan-dissection-copy/</link>
       <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
       
-      <guid>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</guid>
-      <description>Finding Friend or Foe in Multi-Agent Games Problem
- There have been multiple breakthroughs in multi-agent games in recent research, however none of these games deal with the scenario where co-operation is with unknown team mates is uncertain. In games like Dota and Capture the Flag there is no ambiguity on who to co-operate with. In hidden role games like The Resistance: Avalon, discovering the roles of each player is a challenging task with similarities to deception games like poker.</description>
+      <guid>https://snd96.github.io/paper-a-week/papers/gan-dissection-copy/</guid>
+      <description>GAN Dissection Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
     </item>
     
     <item>
