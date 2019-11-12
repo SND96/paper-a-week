@@ -146,7 +146,7 @@
 <ul>
 <li>Instructions are provided as a sequence of words which are converted into a sequence of word embeddings.</li>
 <li>Each previous trajectory is processed by a 1D CNN to generated a trajectory embedding. The correction $C_i$, similar to the language description is converted into a sequence of word-embeddings.</li>
-<li>Policy module has to integrate the high level description embedded into $Z_{im}$, the actionable changes from the correction module $Z_{cm}$ and environment state <em>s</em> to generated the right action</li>
+<li>Policy module has to integrate the high level description embedded into <span  class="math">\(Z_{im}\)</span>, the actionable changes from the correction module <span  class="math">\(Z_{cm}\)</span> and environment state <em>s</em> to generated the right action</li>
 <li>By iteratively incorporating language corrections, the model is in effect learning how to learn better analogous to meta-reinforcement learning recurrent models</li>
 </ul>
 

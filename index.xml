@@ -36,6 +36,16 @@ Problem
     </item>
     
     <item>
+      <title>Finding Friend or Foe in Multi-Agent Games</title>
+      <link>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</link>
+      <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/finding-friend-or-foe-in-multi-agent-games/</guid>
+      <description>Finding Friend or Foe in Multi-Agent Games Problem
+ There have been multiple breakthroughs in multi-agent games in recent research, however none of these games deal with the scenario where co-operation is with unknown team mates is uncertain. In games like Dota and Capture the Flag there is no ambiguity on who to co-operate with. In hidden role games like The Resistance: Avalon, discovering the roles of each player is a challenging task with similarities to deception games like poker.</description>
+    </item>
+    
+    <item>
       <title>GAN Dissection</title>
       <link>https://snd96.github.io/paper-a-week/papers/gan-dissection/</link>
       <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
