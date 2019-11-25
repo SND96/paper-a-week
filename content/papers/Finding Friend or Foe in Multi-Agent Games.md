@@ -31,6 +31,7 @@ https://arxiv.org/pdf/1906.02330.pdf
 
 **Setting**
 
+
 * *The Resistance: Avalon* is a multi-agent imperfect information game which is used as a testing bed for the *DeepRole* algorithm.
 * In this game there are 5 players with 3 randomly assigned to the Resistance team and 2 assigned to the Spy team. One member of the Resistance is privately cchosen to be Merlin who can see the roles of all other players. One member of the Spy team is assigned as the Assassin. The Spy team wins if the Assassin guesses the identity of the Merlin.
 * Each round consists of players voting for a pair of players to go on a mission and this mission's success is dependent on the privately cast votes of the pair who are sent. If three missions succeed, the Resistance team wins.
