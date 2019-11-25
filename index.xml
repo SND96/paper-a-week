@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Experience Replay for continual learning</title>
+      <title>Experience Replay for Continual Learning</title>
       <link>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</link>
       <pubDate>Sun, 24 Nov 2019 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</guid>
-      <description>Experience Replay for continual learning Problem
+      <description>Experience Replay for Continual Learning https://arxiv.org/pdf/1811.11682.pdf
+Problem
  In settings where gathering new experience is expensive/difficult it is imperative to retain gained knowledge while learning only from one task at a time. Boundaries between different tasks will not be persistent and this leads to the danger of catastrophic forgetting where an agent forgets what it has learned previously when it encounteres a new situtation  Solution
  An ideal continual learning system must satisfy three requirements.</description>
     </item>
@@ -39,7 +40,8 @@ Problem
       <pubDate>Sun, 03 Nov 2019 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/revisiting-self-supervised-visual-representation-learning/</guid>
-      <description>Revisiting Self-Supervised Visual Representation Learning Problem:
+      <description>Revisiting Self-Supervised Visual Representation Learning https://arxiv.org/pdf/1901.09005.pdf
+Problem:
 Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.
 Self Supervision:
  Framework for creating supervised signal automatically in order to learn representations that will be useful for downstream tasks Requires only unlabled data in order to formulate a pretext learning task such as predicting context Pretext tasks must be designed in such a way that high level understanding is useful for solving them  Architecture of CNN models:</description>
@@ -63,7 +65,8 @@ Problem
       <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/gan-dissection/</guid>
-      <description>GAN Dissection Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
+      <description>GAN Dissection https://arxiv.org/pdf/1811.10597.pdf
+Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
     </item>
     
   </channel>
