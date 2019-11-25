@@ -1,4 +1,3 @@
-
 ---
 katex: true
 markup: "mmark"
