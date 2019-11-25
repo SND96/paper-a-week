@@ -53,6 +53,6 @@ https://arxiv.org/pdf/1811.11682.pdf
 
 **Extensions**
 
-* Algorithm that both remember and selectively forget certain tasks that are no longer needed or have changed drastically.
+* Algorithm that both remembers and selectively forgets certain tasks that are no longer needed or have changed drastically.
 * This happens when the action space of a task is changed during training and hence the agent needs to overwrite previously learned skills.
 
