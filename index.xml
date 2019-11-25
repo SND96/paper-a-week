@@ -6,10 +6,21 @@
     <description>Recent content on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Nov 2019 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 24 Nov 2019 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Experience Replay for continual learning</title>
+      <link>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</link>
+      <pubDate>Sun, 24 Nov 2019 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</guid>
+      <description>Experience Replay for continual learning Problem
+ In settings where gathering new experience is expensive/difficult it is imperative to retain gained knowledge while learning only from one task at a time. Boundaries between different tasks will not be persistent and this leads to the danger of catastrophic forgetting where an agent forgets what it has learned previously when it encounteres a new situtation  Solution
+ An ideal continual learning system must satisfy three requirements.</description>
+    </item>
     
     <item>
       <title>Finding Friend or Foe in Multi-Agent Games</title>
@@ -48,31 +59,11 @@ Problem
     
     <item>
       <title>GAN Dissection</title>
-      <link>https://snd96.github.io/paper-a-week/papers/gan-dissection-copy/</link>
-      <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
-      
-      <guid>https://snd96.github.io/paper-a-week/papers/gan-dissection-copy/</guid>
-      <description>GAN Dissection Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
-    </item>
-    
-    <item>
-      <title>GAN Dissection</title>
       <link>https://snd96.github.io/paper-a-week/papers/gan-dissection/</link>
       <pubDate>Sat, 26 Oct 2019 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/gan-dissection/</guid>
       <description>GAN Dissection Problem  Interpretability of Generative Adversarial networks is still a mystery Example: To produce a church image, what does a GAN need to learn? How are these structures represented? What causes artifacts and why do different GAN variants work better?  Solution  Study the internal represenentations of GANs Understand how GAN represents structures and whether there is any way to interpret these structures for a human. A general method for visualizing and understanding GANs at different levels of abstraction is presented.</description>
-    </item>
-    
-    <item>
-      <title>Guiding Policies with Language via Meta-Learning</title>
-      <link>https://snd96.github.io/paper-a-week/papers/guiding-policies-with-language-via-meta-learning/</link>
-      <pubDate>Sun, 13 Oct 2019 08:47:11 +0100</pubDate>
-      
-      <guid>https://snd96.github.io/paper-a-week/papers/guiding-policies-with-language-via-meta-learning/</guid>
-      <description>Guiding Policies with Language via Meta-Learning Problem:
- Reward functions and imitation learning have disadvantages for policy learning Reward functions require manual engineering while demonstrations require a human expert to be able to perform the task  Solution:
- Natural language instructions can overcome those disadvantages by being able to specify in detail the goals of the agent However, one instruction would not be enough so it is proposed that iterative language corrections are provided to an agent.</description>
     </item>
     
   </channel>
