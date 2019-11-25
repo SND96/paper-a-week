@@ -8,6 +8,8 @@ title: "Guiding Policies with Language via Meta-Learning"
 
 # Guiding Policies with Language via Meta-Learning
 
+https://arxiv.org/pdf/1811.07882.pdf
+
 **Problem**:
 
 * Reward functions and imitation learning have disadvantages for policy learning

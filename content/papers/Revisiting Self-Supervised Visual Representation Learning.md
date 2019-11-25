@@ -8,6 +8,8 @@ title: "Revisiting Self-Supervised Visual Representation Learning"
 
 # Revisiting Self-Supervised Visual Representation Learning
 
+https://arxiv.org/pdf/1901.09005.pdf
+
 **Problem:** 
 
 Paper deals with aspects of self-supervised learning that have been not researched thouroughly or recent enough.

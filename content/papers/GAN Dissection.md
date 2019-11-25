@@ -11,6 +11,8 @@ draft: false
 
 # GAN Dissection
 
+https://arxiv.org/pdf/1811.10597.pdf
+
 ## Problem
 
 * Interpretability of Generative Adversarial networks is still a mystery

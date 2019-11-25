@@ -2,14 +2,16 @@
 katex: true
 markup: "mmark"
 date: 2019-11-24T08:47:11+01:00
-title: "Experience Replay for continual learning"
+title: "Experience Replay for Continual Learning"
 description: "" 
 
 
 draft: false
 ---
 
-# Experience Replay for continual learning
+# Experience Replay for Continual Learning
+
+https://arxiv.org/pdf/1811.11682.pdf
 
 **Problem**
 
