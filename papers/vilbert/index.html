@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | ViLBERT</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://snd96.github.io/paper-a-week/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="ViLBERT" />
+<meta property="og:description" content="ViLBERT Problem
+ Currently the dominant strategy for vision-and-language tasks is to pretrain models for the two domains separately and then attempt learn visual grounding by training them together However, this approach does not accurately capture the relations between visual and linguistic features and how they effect one another. Need a model that is pre-trained for visual grounding.  Solution:
+ Paper presents a joint model for learning task-agnostic visual grounding from paired visiolinguistic data which is called Vision &amp; Language BERT." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/vilbert/" />
+<meta property="article:published_time" content="2020-02-21T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-02-21T08:47:11+01:00" />
+<meta itemprop="name" content="ViLBERT">
+<meta itemprop="description" content="ViLBERT Problem
+ Currently the dominant strategy for vision-and-language tasks is to pretrain models for the two domains separately and then attempt learn visual grounding by training them together However, this approach does not accurately capture the relations between visual and linguistic features and how they effect one another. Need a model that is pre-trained for visual grounding.  Solution:
+ Paper presents a joint model for learning task-agnostic visual grounding from paired visiolinguistic data which is called Vision &amp; Language BERT.">
+
+
+<meta itemprop="datePublished" content="2020-02-21T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-02-21T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="375">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ViLBERT"/>
+<meta name="twitter:description" content="ViLBERT Problem
+ Currently the dominant strategy for vision-and-language tasks is to pretrain models for the two domains separately and then attempt learn visual grounding by training them together However, this approach does not accurately capture the relations between visual and linguistic features and how they effect one another. Need a model that is pre-trained for visual grounding.  Solution:
+ Paper presents a joint model for learning task-agnostic visual grounding from paired visiolinguistic data which is called Vision &amp; Language BERT."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://snd96.github.io/paper-a-week/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">ViLBERT</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-02-21T08:47:11&#43;01:00">February 21, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="vilbert">ViLBERT</h1>
+
+<p><strong>Problem</strong></p>
+
+<ul>
+<li>Currently the dominant strategy for vision-and-language tasks is to pretrain models for the two domains separately and then attempt learn visual grounding by training them together</li>
+<li>However, this approach does not accurately capture the relations between visual and linguistic features and how they effect one another.</li>
+<li>Need a model that is pre-trained for visual grounding.</li>
+</ul>
+
+<p><strong>Solution:</strong></p>
+
+<ul>
+<li>Paper presents a joint model for learning task-agnostic visual grounding from paired visiolinguistic data which is called Vision &amp; Language BERT.</li>
+<li>Uses separate streams for vision and language processing, but these streams communicate using co-attentional transformer layers. Provides interaction between the different streams at various depths.</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/995bd47c.png" alt="995bd47c.png"></figure></p>
+
+<p><strong>Extending BERT to jointly represent Images and Text:</strong></p>
+
+<ul>
+<li>ViLBERT consists of two parallel BERT-style models operating over image regions and text segments.</li>
+<li>Each stream is a series of transformer blocks (TRM) and co-attentional transformer layers (Co-TRM) which is introduced to enable information exchange between the two modalities.</li>
+<li>Given a text input ($w_0,...,w_T$) and region features ($v_1,...,v<em>T$) the model outputs final representions $(h</em>{v0},..,h_{vT})$ and $(h_{w0},..,h_{wT})$. The interaction between the streams is limited to only certain layers.</li>
+<li>
+<figure><img src="https://snd96.github.io/paper-a-week/attachments/95ab3668.png" alt="95ab3668.png"></figure></li>
+</ul>
+
+<p><strong>Co-Attentional Transformer Layers:</strong></p>
+
+<ul>
+<li>Given intermediate visual and linguistic representations ${H_V}^{(i)}$ and  ${H_W}^{(j)}$, the model computes the query, key and value matrices as in a standard transformer block.</li>
+<li>However, the keys and values from each modality is passed as input to the other modality's multi-headed attention block. This causes the attention block to produce features for each modality conditioned on the other</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/d902849b.png" alt="d902849b.png"></figure></p>
+
+<p><strong>Training:</strong></p>
+
+<ul>
+<li>Two pre-training tasks are considered: <em>masked multi-modal modelling</em> and <em>multi-modal alignment prediction.</em></li>
+<li>The masked multi-modal task is similar to what is used in standard BERT. Masked image regions have image features zeroed out 90% of the time.</li>
+<li>In multi--modal alignment task, the model is present an image-text pair and must predict whether the image and text are aligned correctly.</li>
+</ul>
+
+<p><strong>Vision-and-Language Transfer Tasks:</strong></p>
+
+<ul>
+<li>A fine tuning strategy of modifying the pre-trained model to perform the new task and then train the entire model end-to-end is used.
+
+<ul>
+<li>Visual Question Answering</li>
+<li>Visual Commonsense Reasoning</li>
+<li>Grounding referring Epressions</li>
+<li>Caption-Based Image Retrieval</li>
+<li>Zero-shot Caption-Based Image Retrieval</li>
+</ul></li>
+</ul>
+
+<p><strong>Results</strong></p>
+
+<ul>
+<li>ViLBERT does better than single stream models on downstream tasks.</li>
+<li>Pre-training ViLBERT using proxy tasks improves performance</li>
+<li>Finetuning from ViLBERT, transfer task performance exceeds state-of-the-art task specific models for the 4 tasks</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://snd96.github.io/paper-a-week/" >
+    &copy; 2020 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="https://snd96.github.io/paper-a-week/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

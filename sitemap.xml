@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</loc>
-    <lastmod>2019-11-24T08:47:11+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://snd96.github.io/paper-a-week/</loc>
-    <lastmod>2019-11-24T08:47:11+01:00</lastmod>
+    <lastmod>2020-02-21T08:47:11+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://snd96.github.io/paper-a-week/papers/</loc>
+    <lastmod>2020-02-21T08:47:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://snd96.github.io/paper-a-week/papers/vilbert/</loc>
+    <lastmod>2020-02-21T08:47:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://snd96.github.io/paper-a-week/papers/experience-replay-for-continual-learning/</loc>
     <lastmod>2019-11-24T08:47:11+01:00</lastmod>
   </url>
   
