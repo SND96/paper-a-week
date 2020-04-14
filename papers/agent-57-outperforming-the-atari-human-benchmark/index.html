@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | Agent 57: Outperforming the Atari Human Benchmark</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://snd96.github.io/paper-a-week/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Agent 57: Outperforming the Atari Human Benchmark" />
+<meta property="og:description" content="Agent 57 https://arxiv.org/pdf/2003.13350.pdf
+Problem:
+ Current state of the art reinforcement learning models for Atari games can only do well on a subset of the the 57 games available. Models that solve hard exploration problems like Pitfall can reach human level performance but can&#39;t do so for every game  Solution
+ Agent57 incorporates many existing approaches to solve these hard exploration problems but iterates on them to achieve human level performance on all of the games and not just a subset The two problems that the model has to solve is,  Long-term credit assignment: Games where the reward is only assigned after a very long sequence of actions which means the agent has to infer how its current action will affect states that are many steps into the future." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/agent-57-outperforming-the-atari-human-benchmark/" />
+<meta property="article:published_time" content="2020-03-10T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-03-10T08:47:11+01:00" />
+<meta itemprop="name" content="Agent 57: Outperforming the Atari Human Benchmark">
+<meta itemprop="description" content="Agent 57 https://arxiv.org/pdf/2003.13350.pdf
+Problem:
+ Current state of the art reinforcement learning models for Atari games can only do well on a subset of the the 57 games available. Models that solve hard exploration problems like Pitfall can reach human level performance but can&#39;t do so for every game  Solution
+ Agent57 incorporates many existing approaches to solve these hard exploration problems but iterates on them to achieve human level performance on all of the games and not just a subset The two problems that the model has to solve is,  Long-term credit assignment: Games where the reward is only assigned after a very long sequence of actions which means the agent has to infer how its current action will affect states that are many steps into the future.">
+
+
+<meta itemprop="datePublished" content="2020-03-10T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-03-10T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="691">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Agent 57: Outperforming the Atari Human Benchmark"/>
+<meta name="twitter:description" content="Agent 57 https://arxiv.org/pdf/2003.13350.pdf
+Problem:
+ Current state of the art reinforcement learning models for Atari games can only do well on a subset of the the 57 games available. Models that solve hard exploration problems like Pitfall can reach human level performance but can&#39;t do so for every game  Solution
+ Agent57 incorporates many existing approaches to solve these hard exploration problems but iterates on them to achieve human level performance on all of the games and not just a subset The two problems that the model has to solve is,  Long-term credit assignment: Games where the reward is only assigned after a very long sequence of actions which means the agent has to infer how its current action will affect states that are many steps into the future."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://snd96.github.io/paper-a-week/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">Agent 57: Outperforming the Atari Human Benchmark</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-10T08:47:11&#43;01:00">March 10, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="agent-57">Agent 57</h1>
+
+<p><a href="https://arxiv.org/pdf/2003.13350.pdf">https://arxiv.org/pdf/2003.13350.pdf</a></p>
+
+<p><strong>Problem:</strong></p>
+
+<ul>
+<li>Current state of the art reinforcement learning models for Atari games can only do well on a subset of the the 57 games available.</li>
+<li>Models that solve hard exploration problems like Pitfall can reach human level performance but can't do so for every game</li>
+</ul>
+
+<p><strong>Solution</strong></p>
+
+<ul>
+<li>Agent57 incorporates many existing approaches to solve these hard exploration problems but iterates on them to achieve human level performance on all of the games and not just a subset</li>
+<li>The two problems that the model has to solve is,
+
+<ul>
+<li>Long-term credit assignment: Games where the reward is only assigned after a very long sequence of actions which means the agent has to infer how its current action will affect states that are many steps into the future. Example for such games include <em>Skiing</em></li>
+<li>Exploration: Games where hundreds of combinations of actions may be required before a reward is seen. Examples include <em>Montezuma's Revenge</em> and <em>Pitfall</em></li>
+</ul></li>
+<li>The long-term credit assignment is solved by improving the training stability. This is done by a new parameterization of the state-action value function that decomposes the contributions of the intrinsic and extrinsic reward so that they can be individually optimized.</li>
+<li>The hard-exploration problem is solved by building on the Never Give Up model from Puigdomenech Badia et all. This model trains many policies with different exploration rates to explore as quickly and efficiently as possible. Agent57 improves upon this model by adding an adaptive meta controller which determines which policies to prioritize during the training process.</li>
+</ul>
+
+<p><strong>Never Give Up (NGU)</strong></p>
+
+<ul>
+<li>NGU computes an intrinisic reward to encourage exploration.</li>
+<li>The reward is defined by combining per-episode ($r_t^{episodic}$) and life-long novelty ($\alpha_t$)</li>
+<li>Per episode novelty vanishes over the course of an episode while life-long novertly slowly vanishes over the entire training process.</li>
+</ul>
+
+<p>The intrinsic reward is defined by,
+$r_t<sup>i=r_t</sup>{episodic}.min(max(\alpha_t,1),L)$, where L = 5 is maximum reward scaling.</p>
+
+<p>The combined reward including extrinsic,
+$r_{j,t}=r_t<sup>e+\beta_jr</sup>i_t$.
+The $\beta$ parameter provides a means of controlling the exploration rate. Since the intrinisic reward is typically more dense than the extrinsic reward, the parameter is chosen to allow for long term horizons(high values of $\gamma_j$) for exploitative policies (small values of $\beta_j$) and small term horizons (low values of $\gamma_j$) for exploratory policies (large values of $\beta_j$).</p>
+
+<ul>
+<li>In practice, NGU can be unstable and fail to learn an approximation of the state-action value function possibly due to the case when the scale and sparseness of the two rewards are both different or one is more noisy than the other. This is solved by introducing an architectural modification.</li>
+<li>* The core idea of NGU is to jointly train a family of policies with different exploration rates using a single network architecture. These policies play the role of auxiliary tasks that help train the shared architecture. The limitation to this approach is that all policies are trained equally regardless of their contribution. This is solved by intoducing a meta-controller that selects the best policy dynamically during training.</li>
+</ul>
+
+<p><strong>Improvements to NGU</strong></p>
+
+<ul>
+<li>To fix the issue of instability, the state-action value function is split:
+<span  class="math">\(Q(x,a,j;\theta)=Q(x,a,j;\theta^e) + \beta_jQ(x,a,j;\theta^i) \)</span></li>
+<li>By explicitly splitting the optimization of each reward, two separate networks can be trained too adapt better to a single function.</li>
+<li>This optimization is equivalent to the original optimization function in NGU.</li>
+<li>Adaptive exploration over a family of policies
+
+<ul>
+<li>Instead of treating each policy as equal, based on where the model is in during training, a particular set of policies is prioritized.</li>
+<li>Early on in the process, policies with a higher exploration rate and lower discount rate are favoured which is natural since the model has very little information at that point. This is slowly shifted to the opposite as training progresses.</li>
+<li>The meta controller is implemented using a non--stationary multi-arm bandit algorithm running independently on each actor. Each arm is linked to a policy in the family and at the beginning of each episode, a particular arm/policy will be executed.</li>
+</ul></li>
+</ul>
+
+<p><strong>Results</strong></p>
+
+<ul>
+<li>Agent57 outperforms human scores in each of the 57 Atari games. It does not do better in certain games compared to just NGU or MuZero</li>
+<li>The model overall is still not optimized and work remains to be done.</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://snd96.github.io/paper-a-week/" >
+    &copy; 2020 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="https://snd96.github.io/paper-a-week/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

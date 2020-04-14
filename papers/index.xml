@@ -6,10 +6,22 @@
     <description>Recent content in Papers on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Feb 2020 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2020 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Agent 57: Outperforming the Atari Human Benchmark</title>
+      <link>https://snd96.github.io/paper-a-week/papers/agent-57-outperforming-the-atari-human-benchmark/</link>
+      <pubDate>Tue, 10 Mar 2020 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/agent-57-outperforming-the-atari-human-benchmark/</guid>
+      <description>Agent 57 https://arxiv.org/pdf/2003.13350.pdf
+Problem:
+ Current state of the art reinforcement learning models for Atari games can only do well on a subset of the the 57 games available. Models that solve hard exploration problems like Pitfall can reach human level performance but can&#39;t do so for every game  Solution
+ Agent57 incorporates many existing approaches to solve these hard exploration problems but iterates on them to achieve human level performance on all of the games and not just a subset The two problems that the model has to solve is,  Long-term credit assignment: Games where the reward is only assigned after a very long sequence of actions which means the agent has to infer how its current action will affect states that are many steps into the future.</description>
+    </item>
     
     <item>
       <title>ViLBERT</title>
