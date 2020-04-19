@@ -30,16 +30,16 @@ https://arxiv.org/pdf/2003.13350.pdf
 **Never Give Up (NGU)**
 
 * NGU computes an intrinisic reward to encourage exploration.
-* The reward is defined by combining per-episode ($r_t^{episodic}$) and life-long novelty ($\alpha_t$)
+* The reward is defined by combining per-episode ($$r_t^{episodic}$$) and life-long novelty ($$\alpha_t$$)
 * Per episode novelty vanishes over the course of an episode while life-long novertly slowly vanishes over the entire training process.
 
 
 The intrinsic reward is defined by,
-$r_t^i=r_t^{episodic}.min(max(\alpha_t,1),L)$, where L = 5 is maximum reward scaling.
+$$r_t^i=r_t^{episodic}.min(max(\alpha_t,1),L)$$, where L = 5 is maximum reward scaling.
 
 The combined reward including extrinsic,
-$r_{j,t}=r_t^e+\beta_jr^i_t$. 
-The $\beta$ parameter provides a means of controlling the exploration rate. Since the intrinisic reward is typically more dense than the extrinsic reward, the parameter is chosen to allow for long term horizons(high values of $\gamma_j$) for exploitative policies (small values of $\beta_j$) and small term horizons (low values of $\gamma_j$) for exploratory policies (large values of $\beta_j$).
+$$r_{j,t}=r_t^e+\beta_jr^i_t$$. 
+The $$\beta$$ parameter provides a means of controlling the exploration rate. Since the intrinisic reward is typically more dense than the extrinsic reward, the parameter is chosen to allow for long term horizons(high values of $$\gamma_j$$) for exploitative policies (small values of $$\beta_j$$) and small term horizons (low values of $$\gamma_j$$) for exploratory policies (large values of $$\beta_j$$).
 * In practice, NGU can be unstable and fail to learn an approximation of the state-action value function possibly due to the case when the scale and sparseness of the two rewards are both different or one is more noisy than the other. This is solved by introducing an architectural modification.
 * * The core idea of NGU is to jointly train a family of policies with different exploration rates using a single network architecture. These policies play the role of auxiliary tasks that help train the shared architecture. The limitation to this approach is that all policies are trained equally regardless of their contribution. This is solved by intoducing a meta-controller that selects the best policy dynamically during training.
 

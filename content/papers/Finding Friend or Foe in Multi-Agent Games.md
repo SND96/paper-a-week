@@ -42,16 +42,16 @@ https://arxiv.org/pdf/1906.02330.pdf
 
 * CFR requires a public game tree from player action which is easily obtainable in games like poker where all player actions are visible.
 * In hidden role games, key actions are done in private and to support this, the public gagme tree is made into a history of third person observations instead of just actions.
-* Using the public game tree, a joint posterior belief $b(\rho|h)$ over initial assignment of roles $\rho$. This belief represents the joint probability that each players has role specified in $\rho$ given $h$ which represents history of observations so far. 
+* Using the public game tree, a joint posterior belief $$b(\rho|h)$$ over initial assignment of roles $$\rho$$. This belief represents the joint probability that each players has role specified in $$\rho$$ given $$h$$ which represents history of observations so far. 
 * The joint posterior can be estimated by using individual players likelihoods.
 ![Screenshot 2019-11-12 at 00.33.55.png](/attachments/eb738e35.png)
-* $I_i(h,\rho)$ represents the information set implied by public history $h$. The indicator term zeros the probability that nay $\rho$ is logically inconsistent with the public game treee by removing impossible outcomes.
+* $$I_i(h,\rho)$$ represents the information set implied by public history $$h$$. The indicator term zeros the probability that nay $$\rho$$ is logically inconsistent with the public game treee by removing impossible outcomes.
 * Actions in Avalon are not inherently related to each other. Betting 105 chips in poker is very similar to betting 104 chips, but voting a mission up is distinct from voting it down.
 * The size of Avalon's game tree comes from the number of players rather than the available actions.
 * The authors partition the game tree to enable a deep network to more easily traverse the branches.
 
 ![Screenshot 2019-11-12 at 00.41.15.png](/attachments/a3519019.png)
-* The paper also details a Value network which is calculated for private information $I$ for each player $i$ as: 
+* The paper also details a Value network which is calculated for private information $$I$$ for each player $$i$$ as: 
 
 ![Screenshot 2019-11-12 at 00.41.09.png](/attachments/f3f19d76.png)
 
