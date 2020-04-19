@@ -142,16 +142,16 @@ Problem:
 
 <ul>
 <li>NGU computes an intrinisic reward to encourage exploration.</li>
-<li>The reward is defined by combining per-episode ($r_t^{episodic}$) and life-long novelty ($\alpha_t$)</li>
+<li>The reward is defined by combining per-episode (<span  class="math">\(r_t^{episodic}\)</span>) and life-long novelty (<span  class="math">\(\alpha_t\)</span>)</li>
 <li>Per episode novelty vanishes over the course of an episode while life-long novertly slowly vanishes over the entire training process.</li>
 </ul>
 
 <p>The intrinsic reward is defined by,
-$r_t<sup>i=r_t</sup>{episodic}.min(max(\alpha_t,1),L)$, where L = 5 is maximum reward scaling.</p>
+<span  class="math">\(r_t^i=r_t^{episodic}.min(max(\alpha_t,1),L)\)</span>, where L = 5 is maximum reward scaling.</p>
 
 <p>The combined reward including extrinsic,
-$r_{j,t}=r_t<sup>e+\beta_jr</sup>i_t$.
-The $\beta$ parameter provides a means of controlling the exploration rate. Since the intrinisic reward is typically more dense than the extrinsic reward, the parameter is chosen to allow for long term horizons(high values of $\gamma_j$) for exploitative policies (small values of $\beta_j$) and small term horizons (low values of $\gamma_j$) for exploratory policies (large values of $\beta_j$).</p>
+<span  class="math">\(r_{j,t}=r_t^e+\beta_jr^i_t\)</span>.
+The <span  class="math">\(\beta\)</span> parameter provides a means of controlling the exploration rate. Since the intrinisic reward is typically more dense than the extrinsic reward, the parameter is chosen to allow for long term horizons(high values of <span  class="math">\(\gamma_j\)</span>) for exploitative policies (small values of <span  class="math">\(\beta_j\)</span>) and small term horizons (low values of <span  class="math">\(\gamma_j\)</span>) for exploratory policies (large values of <span  class="math">\(\beta_j\)</span>).</p>
 
 <ul>
 <li>In practice, NGU can be unstable and fail to learn an approximation of the state-action value function possibly due to the case when the scale and sparseness of the two rewards are both different or one is more noisy than the other. This is solved by introducing an architectural modification.</li>

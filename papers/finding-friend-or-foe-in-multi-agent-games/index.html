@@ -147,10 +147,10 @@ Problem
 <ul>
 <li>CFR requires a public game tree from player action which is easily obtainable in games like poker where all player actions are visible.</li>
 <li>In hidden role games, key actions are done in private and to support this, the public gagme tree is made into a history of third person observations instead of just actions.</li>
-<li>Using the public game tree, a joint posterior belief $b(\rho|h)$ over initial assignment of roles $\rho$. This belief represents the joint probability that each players has role specified in $\rho$ given $h$ which represents history of observations so far.</li>
+<li>Using the public game tree, a joint posterior belief <span  class="math">\(b(\rho|h)\)</span> over initial assignment of roles <span  class="math">\(\rho\)</span>. This belief represents the joint probability that each players has role specified in <span  class="math">\(\rho\)</span> given <span  class="math">\(h\)</span> which represents history of observations so far.</li>
 <li>The joint posterior can be estimated by using individual players likelihoods.
 <figure><img src="https://snd96.github.io/paper-a-week/attachments/eb738e35.png" alt="Screenshot 2019-11-12 at 00.33.55.png"></figure></li>
-<li>$I_i(h,\rho)$ represents the information set implied by public history $h$. The indicator term zeros the probability that nay $\rho$ is logically inconsistent with the public game treee by removing impossible outcomes.</li>
+<li><span  class="math">\(I_i(h,\rho)\)</span> represents the information set implied by public history <span  class="math">\(h\)</span>. The indicator term zeros the probability that nay <span  class="math">\(\rho\)</span> is logically inconsistent with the public game treee by removing impossible outcomes.</li>
 <li>Actions in Avalon are not inherently related to each other. Betting 105 chips in poker is very similar to betting 104 chips, but voting a mission up is distinct from voting it down.</li>
 <li>The size of Avalon's game tree comes from the number of players rather than the available actions.</li>
 <li>The authors partition the game tree to enable a deep network to more easily traverse the branches.</li>
@@ -159,7 +159,7 @@ Problem
 <p><figure><img src="https://snd96.github.io/paper-a-week/attachments/a3519019.png" alt="Screenshot 2019-11-12 at 00.41.15.png"></figure></p>
 
 <ul>
-<li>The paper also details a Value network which is calculated for private information $I$ for each player $i$ as:</li>
+<li>The paper also details a Value network which is calculated for private information <span  class="math">\(I\)</span> for each player <span  class="math">\(i\)</span> as:</li>
 </ul>
 
 <p><figure><img src="https://snd96.github.io/paper-a-week/attachments/f3f19d76.png" alt="Screenshot 2019-11-12 at 00.41.09.png"></figure></p>
