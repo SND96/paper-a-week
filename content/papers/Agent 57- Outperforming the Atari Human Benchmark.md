@@ -1,7 +1,7 @@
 ---
 katex: true
 markup: "mmark"
-date: 2020-03-10T08:47:11+01:00
+date: 2020-04-12T08:47:11+01:00
 title: "Agent 57: Outperforming the Atari Human Benchmark"
 description: "" 
 

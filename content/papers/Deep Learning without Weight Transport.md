@@ -1,7 +1,7 @@
 ---
 katex: true
 markup: "mmark"
-date: 2020-03-17T08:47:11+01:00
+date: 2020-04-19T08:47:11+01:00
 title: "Deep Learning without Weight Transport"
 description: "" 
 
@@ -27,7 +27,7 @@ Both of these use $$W$$ matrix which is not proven to be possible in the brain w
 * This implies $$E[xy^T]=\sigma^2W^T$$
 * B can be pushed in the direction of W using 
 
-$$\Delta B=\eta_Bxy^T$$\\
+$$\Delta B=\eta_Bxy^T$$\
 
 * Over time, B may grow large so a mechanism must be implemented to prevent this.
 * The network operates in 2 modes. Engaged and mirror mode.
@@ -35,22 +35,22 @@ $$\Delta B=\eta_Bxy^T$$\\
 * In mirror mode, the feedback weights $$B$$ are updated using the above rule. The feedback signal $$\delta_l$$ in each layer, faithfully mimics $$y_l$$
 * Then the update rule becomes,
 
-![Screenshot 2020-04-18 at 00.54.54.png](:/attachments/9865435e.png)
+![Screenshot 2020-04-18 at 00.54.54.png](/attachments/9865435e.png)
 
-$$\Delta B_{l+1}=\eta_B\delta_l\delta_{l+1}^T$$\\
+$$\Delta B_{l+1}=\eta_B\delta_l\delta_{l+1}^T$$\
 
 *Proof for Weight mirrors:*
 
 $$\delta_l\delta_{l+1}^T=y_ly_{l+1}^T=y_l\phi(W_{l+1}y_l+b_{l+1})^T$$\\
 Assume that $$\phi$$ is diffrentiable everywwhere, and variance of $$y_l$$ is very small such that $$W_{l+1}y_l+b_{l+1}$$ falls in a rougly affine range of $$\phi$$ then,\\
 $$\phi(W_{l+1}y_l+b_{l+1})\approx\phi'(b_{l+1})(W_{l+1}y_l)+\phi(b_{l+1})$$\\
-$$\therefore \delta_l\delta_{l+1}^T\approx y_l[y_l^TW_{l+1}^T\phi'(b_{l+1})^T+\phi(b_{l+1})^T]$$\\
+$$\therefore \delta_l\delta_{l+1}^T\approx y_l[y_l^TW_{l+1}^T\phi'(b_{l+1})^T+\phi(b_{l+1})^T]$$\
 
 Replacing in the expectation:
 
 $$E[\Delta B_{l+1}]\approx\eta_b(E[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T+E[y_l]\phi(b_{l+1})^T)$$\\
 $$=\eta_bE[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T$$\\
-$$=\eta_bW_{l+1}^T\phi'(b_{l+1}^T)$$\\
+$$=\eta_bW_{l+1}^T\phi'(b_{l+1}^T)$$\
 
 So we can see that the matrix $$B$$ integrates a teaching signal which is related to $$W$$.
 
