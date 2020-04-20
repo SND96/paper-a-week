@@ -6,7 +6,7 @@
     <description>Recent content on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Mar 2020 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Deep Learning without Weight Transport</title>
       <link>https://snd96.github.io/paper-a-week/papers/deep-learning-without-weight-transport/</link>
-      <pubDate>Tue, 17 Mar 2020 08:47:11 +0100</pubDate>
+      <pubDate>Sun, 19 Apr 2020 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/deep-learning-without-weight-transport/</guid>
       <description>Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:</description>
@@ -23,7 +23,7 @@
     <item>
       <title>Agent 57: Outperforming the Atari Human Benchmark</title>
       <link>https://snd96.github.io/paper-a-week/papers/agent-57-outperforming-the-atari-human-benchmark/</link>
-      <pubDate>Tue, 10 Mar 2020 08:47:11 +0100</pubDate>
+      <pubDate>Sun, 12 Apr 2020 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/agent-57-outperforming-the-atari-human-benchmark/</guid>
       <description>Agent 57 https://arxiv.org/pdf/2003.13350.pdf

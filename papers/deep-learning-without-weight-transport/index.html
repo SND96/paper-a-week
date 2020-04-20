@@ -29,14 +29,14 @@
 <meta property="og:description" content="Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/deep-learning-without-weight-transport/" />
-<meta property="article:published_time" content="2020-03-17T08:47:11+01:00" />
-<meta property="article:modified_time" content="2020-03-17T08:47:11+01:00" />
+<meta property="article:published_time" content="2020-04-19T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-04-19T08:47:11+01:00" />
 <meta itemprop="name" content="Deep Learning without Weight Transport">
 <meta itemprop="description" content="Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:">
 
 
-<meta itemprop="datePublished" content="2020-03-17T08:47:11&#43;01:00" />
-<meta itemprop="dateModified" content="2020-03-17T08:47:11&#43;01:00" />
+<meta itemprop="datePublished" content="2020-04-19T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-04-19T08:47:11&#43;01:00" />
 <meta itemprop="wordCount" content="549">
 
 
@@ -99,7 +99,7 @@
       <h1 class="f1 athelas mb1">Deep Learning without Weight Transport</h1>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2020-03-17T08:47:11&#43;01:00">March 17, 2020</time>
+      <time class="f6 mv4 dib tracked" datetime="2020-04-19T08:47:11&#43;01:00">April 19, 2020</time>
       
       
     </header>
@@ -126,7 +126,7 @@ Both of these use <span  class="math">\(W\)</span> matrix which is not proven to
 <li>B can be pushed in the direction of W using</li>
 </ul>
 
-<p><span  class="math">\(\Delta B=\eta_Bxy^T\)</span>\</p>
+<p><span  class="math">\(\Delta B=\eta_Bxy^T\)</span></p>
 
 <ul>
 <li>Over time, B may grow large so a mechanism must be implemented to prevent this.</li>
@@ -136,22 +136,22 @@ Both of these use <span  class="math">\(W\)</span> matrix which is not proven to
 <li>Then the update rule becomes,</li>
 </ul>
 
-<p><figure><img src=":/attachments/9865435e.png" alt="Screenshot 2020-04-18 at 00.54.54.png"></figure></p>
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/9865435e.png" alt="Screenshot 2020-04-18 at 00.54.54.png"></figure></p>
 
-<p><span  class="math">\(\Delta B_{l+1}=\eta_B\delta_l\delta_{l+1}^T\)</span>\</p>
+<p><span  class="math">\(\Delta B_{l+1}=\eta_B\delta_l\delta_{l+1}^T\)</span></p>
 
 <p><em>Proof for Weight mirrors:</em></p>
 
 <p><span  class="math">\(\delta_l\delta_{l+1}^T=y_ly_{l+1}^T=y_l\phi(W_{l+1}y_l+b_{l+1})^T\)</span><br>
 Assume that <span  class="math">\(\phi\)</span> is diffrentiable everywwhere, and variance of <span  class="math">\(y_l\)</span> is very small such that <span  class="math">\(W_{l+1}y_l+b_{l+1}\)</span> falls in a rougly affine range of <span  class="math">\(\phi\)</span> then,<br>
 <span  class="math">\(\phi(W_{l+1}y_l+b_{l+1})\approx\phi'(b_{l+1})(W_{l+1}y_l)+\phi(b_{l+1})\)</span><br>
-<span  class="math">\(\therefore \delta_l\delta_{l+1}^T\approx y_l[y_l^TW_{l+1}^T\phi'(b_{l+1})^T+\phi(b_{l+1})^T]\)</span>\</p>
+<span  class="math">\(\therefore \delta_l\delta_{l+1}^T\approx y_l[y_l^TW_{l+1}^T\phi'(b_{l+1})^T+\phi(b_{l+1})^T]\)</span></p>
 
 <p>Replacing in the expectation:</p>
 
 <p><span  class="math">\(E[\Delta B_{l+1}]\approx\eta_b(E[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T+E[y_l]\phi(b_{l+1})^T)\)</span><br>
 <span  class="math">\(=\eta_bE[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T\)</span><br>
-<span  class="math">\(=\eta_bW_{l+1}^T\phi'(b_{l+1}^T)\)</span>\</p>
+<span  class="math">\(=\eta_bW_{l+1}^T\phi'(b_{l+1}^T)\)</span></p>
 
 <p>So we can see that the matrix <span  class="math">\(B\)</span> integrates a teaching signal which is related to <span  class="math">\(W\)</span>.</p>
 
