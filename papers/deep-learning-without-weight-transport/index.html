@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | Deep Learning without Weight Transport</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://snd96.github.io/paper-a-week/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Deep Learning without Weight Transport" />
+<meta property="og:description" content="Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/deep-learning-without-weight-transport/" />
+<meta property="article:published_time" content="2020-03-17T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-03-17T08:47:11+01:00" />
+<meta itemprop="name" content="Deep Learning without Weight Transport">
+<meta itemprop="description" content="Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:">
+
+
+<meta itemprop="datePublished" content="2020-03-17T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-03-17T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="549">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deep Learning without Weight Transport"/>
+<meta name="twitter:description" content="Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://snd96.github.io/paper-a-week/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">Deep Learning without Weight Transport</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-17T08:47:11&#43;01:00">March 17, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="deep-learning-without-weight-transport">Deep Learning without Weight Transport</h1>
+
+<ul>
+<li>Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm.</li>
+<li>Biologically this is likely impossible as neurons in the brain don't transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.</li>
+</ul>
+
+<p><strong>Weight-transport problem:</strong></p>
+
+<p><span  class="math">\(y_{l+1}=\phi(W_{l+1}y_l+b_{l+1})\)</span>  is the forward pass equation.
+<span  class="math">\(\delta_l=\phi'(y_l)W^T_{l+1}\delta_{l+1}\)</span>  is the backprop equation.
+Both of these use <span  class="math">\(W\)</span> matrix which is not proven to be possible in the brain where forward and feedback paths are physically distinct.</p>
+
+<p><strong>Method 1 - Weight Mirrors:</strong></p>
+
+<ul>
+<li>Initialize random matrix <span  class="math">\(B\)</span> so it becomes proportional to the transpose of another matrix <span  class="math">\(W\)</span> without weight transport.</li>
+<li><span  class="math">\(y = Wx\)</span>. We observe that <span  class="math">\(E[xy^T]=E[xx^TW^T]\)</span>. In the simplest case, the elements of x are independed and zero-mean with equal variance <span  class="math">\(\sigma^2\)</span>.</li>
+<li>This implies <span  class="math">\(E[xy^T]=\sigma^2W^T\)</span></li>
+<li>B can be pushed in the direction of W using</li>
+</ul>
+
+<p><span  class="math">\(\Delta B=\eta_Bxy^T\)</span>\</p>
+
+<ul>
+<li>Over time, B may grow large so a mechanism must be implemented to prevent this.</li>
+<li>The network operates in 2 modes. Engaged and mirror mode.</li>
+<li>Engaged functions similarly to a forward pass to update <span  class="math">\(W\)</span>.</li>
+<li>In mirror mode, the feedback weights <span  class="math">\(B\)</span> are updated using the above rule. The feedback signal <span  class="math">\(\delta_l\)</span> in each layer, faithfully mimics <span  class="math">\(y_l\)</span></li>
+<li>Then the update rule becomes,</li>
+</ul>
+
+<p><figure><img src=":/attachments/9865435e.png" alt="Screenshot 2020-04-18 at 00.54.54.png"></figure></p>
+
+<p><span  class="math">\(\Delta B_{l+1}=\eta_B\delta_l\delta_{l+1}^T\)</span>\</p>
+
+<p><em>Proof for Weight mirrors:</em></p>
+
+<p><span  class="math">\(\delta_l\delta_{l+1}^T=y_ly_{l+1}^T=y_l\phi(W_{l+1}y_l+b_{l+1})^T\)</span><br>
+Assume that <span  class="math">\(\phi\)</span> is diffrentiable everywwhere, and variance of <span  class="math">\(y_l\)</span> is very small such that <span  class="math">\(W_{l+1}y_l+b_{l+1}\)</span> falls in a rougly affine range of <span  class="math">\(\phi\)</span> then,<br>
+<span  class="math">\(\phi(W_{l+1}y_l+b_{l+1})\approx\phi'(b_{l+1})(W_{l+1}y_l)+\phi(b_{l+1})\)</span><br>
+<span  class="math">\(\therefore \delta_l\delta_{l+1}^T\approx y_l[y_l^TW_{l+1}^T\phi'(b_{l+1})^T+\phi(b_{l+1})^T]\)</span>\</p>
+
+<p>Replacing in the expectation:</p>
+
+<p><span  class="math">\(E[\Delta B_{l+1}]\approx\eta_b(E[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T+E[y_l]\phi(b_{l+1})^T)\)</span><br>
+<span  class="math">\(=\eta_bE[y_ly_l^T]W_{l+1}^T\phi'(b_{l+1})^T\)</span><br>
+<span  class="math">\(=\eta_bW_{l+1}^T\phi'(b_{l+1}^T)\)</span>\</p>
+
+<p>So we can see that the matrix <span  class="math">\(B\)</span> integrates a teaching signal which is related to <span  class="math">\(W\)</span>.</p>
+
+<p><strong>Method 2 - Kolen-Pollack Algorithm:</strong></p>
+
+<ul>
+<li>Kolen and Pollack observed that we don't have to transport the weights itself if we can transport the changes in the weights. If <span  class="math">\(W\)</span> and <span  class="math">\(B\)</span> were initially unequal but undergo identical adjustments and identical weight factors</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/251a7f66.png" alt="Screenshot 2020-04-20 at 00.43.13.png"></figure></p>
+
+<ul>
+<li>Then,<br>
+<span  class="math">\(W(t+1) - B(t+1) = W(t) + \Delta W(t) - B(t) - \Delta B(t) = (1-\lambda)[W(t)-B(t)] = (1-\lambda)^{t+1}[W(0)-B(0)] \)</span><br>
+which eventually converges to 0.</li>
+<li>However, biologically this is still infeasible as it involves transfer between synapses.</li>
+<li>Instead, this method has been reworked to fit into the current paradigm. The standard, forward-path learning rule says that the matrix <span  class="math">\(W_{l+1}\)</span> adjusts itself based on a product of its inpit vector <span  class="math">\(y_l\)</span> and a teaching vector <span  class="math">\(\delta_{l+1}\)</span>. Instead a reciprocal arrangement is proposed where synapses in the feedback adjust themselves based on their own inputs and cell-specific, scalar teaching signals from the forward path.</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/7f4b9d5b.png" alt="Screenshot 2020-04-20 at 00.58.32.png"></figure></p>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/b946c9ce.png" alt="Screenshot 2020-04-20 at 01.06.52.png"></figure></p>
+
+<p>In this network, the only variables transmiited between cells and each synapse computes its own adjustment locally. However, these equations are in the form of the Kolen-Pollack equations and therefore the forward and feedback weight matrices converge to transposes of each other.</p>
+
+<p><strong>Experimental Results</strong></p>
+
+<ul>
+<li>Weight mirroring and Kollen-Polack methods both manage a final top-1 test error nearly equivalent to backprop on ImageNet task.</li>
+<li>The forward and feedback matrices agreement were measured by taking matrix angles. This is done by reshaping each into vectors and calcuating the angles. With backprop the angle was always 0 degrees and with weight mirroring the angle remains between 6 and 12 degrees. Kollen-Pollack was even more accurate, with the angles being near 0.</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://snd96.github.io/paper-a-week/" >
+    &copy; 2020 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="https://snd96.github.io/paper-a-week/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
