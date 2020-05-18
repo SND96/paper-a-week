@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | Model based Reinforcement Learning for Atari</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://snd96.github.io/paper-a-week/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Model based Reinforcement Learning for Atari" />
+<meta property="og:description" content="Model based Reinforcement Learning for Atari https://arxiv.org/pdf/1903.00374.pdf
+Introduction
+ Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations. However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/model-based-reinforcement-learning-for-atari/" />
+<meta property="article:published_time" content="2020-04-26T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-04-26T08:47:11+01:00" />
+<meta itemprop="name" content="Model based Reinforcement Learning for Atari">
+<meta itemprop="description" content="Model based Reinforcement Learning for Atari https://arxiv.org/pdf/1903.00374.pdf
+Introduction
+ Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations. However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that.">
+
+
+<meta itemprop="datePublished" content="2020-04-26T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-04-26T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="841">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Model based Reinforcement Learning for Atari"/>
+<meta name="twitter:description" content="Model based Reinforcement Learning for Atari https://arxiv.org/pdf/1903.00374.pdf
+Introduction
+ Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations. However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://snd96.github.io/paper-a-week/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">Model based Reinforcement Learning for Atari</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-04-26T08:47:11&#43;01:00">April 26, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="model-based-reinforcement-learning-for-atari">Model based Reinforcement Learning for Atari</h1>
+
+<p><a href="https://arxiv.org/pdf/1903.00374.pdf">https://arxiv.org/pdf/1903.00374.pdf</a></p>
+
+<p><strong>Introduction</strong></p>
+
+<ul>
+<li>Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations.</li>
+<li>However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that.</li>
+<li>This paper implements a similar concept for reinforcement learning agents where they learn a model of the environment where, given an action and the current state, can predict the next state. This should reduce the amount of interactions needed to learn a game by improving sample efficieny as the model can essentially learn to peek into the future and see which actions generate desirable outcomes. The model being described in the paper is Simulated Policy Learning (SimPLe).</li>
+<li>SimPLe is similar to a video-prediction algorithm</li>
+<li>Empirical evidence shows that SimPLe is more sample-efficient than highly optimized model-free algorithms.</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/abae2011.png" alt="Screenshot 2020-05-01 at 01.32.41.png"></figure></p>
+
+<p><strong>Simulated Policy Learning (SimPLe)</strong></p>
+
+<ul>
+<li>Reinforcement Learning is formalized in Markov decision process (MDP) which defines a tuple (<span  class="math">\(S,A,P,r,\gamma\)</span>), where <span  class="math">\(S\)</span> is a state space, <span  class="math">\(A\)</span> is a set of available actions, <span  class="math">\(P\)</span> is unknow transtion kernel, <span  class="math">\(r\)</span> is reward function and <span  class="math">\(\gamma\)</span> is discount factor.</li>
+<li>The goal of a reinforcement learning algorithm is to learn a policy <span  class="math">\(\pi\)</span> which is a mapping from states to probability distributions over <span  class="math">\(A\)</span>. The paper aims to find a policy in Atari 2600 games which maximizes the objective function for the policy. The crucial aspect is that apart from the <span  class="math">\(env\)</span> from the Atari 2600 emulator, the paper also uses a neural neetwork simulated <span  class="math">\(env'\)</span>.</li>
+<li>The <span  class="math">\(env'\)</span> shares the action space and reward space as the normal <span  class="math">\(env\)</span> and is being trained to mimic the latter.</li>
+</ul>
+
+<p><strong>World Models</strong></p>
+
+<ul>
+<li><em>Determininstic Model:</em> The basic architecture consists of a convolutional feedforward network. The input <span  class="math">\(X\)</span> consists of four consectutive game frames and action <span  class="math">\(a\)</span>. The actions are one-hot envoded and embedded in a vector which is multiplied channel-wise with the output of the convolutional layers. The output is the next frame of the game and the reward. Essentially training to mimic the emulator.</li>
+<li><em>Loss functions:</em> Uses the clipped loss max which was found to be crucial for improving the models.</li>
+<li><em>Scheduled sampling:</em> Since the model <span  class="math">\(env'\)</span> takes as input only the frames from <span  class="math">\(env\)</span>, it is highly likely that an error will become compounded over time steps as the model never sees it again and has no way to correct it. The problem is mitigated by randomly replacing some frames in the input <span  class="math">\(X\)</span> with the predicted frames from the previous time step while linearly increasing the mixing probability to 100% around the middle of the first iteration of the training loop.</li>
+<li><em>Stochastic Models:</em> A stochastic model was used to deal with limited horizon of past observed frames as well as sprites occlusion and flickering which results to higher quality predictions. The authors use a variational autoencoder aas an additional network which receives the input frames as well as the future targgget frame as input and approxinates the distirbbution of the posterior. At each step, a latent value <span  class="math">\(z_t\)</span> is sampled from this distribution and passed as input to the original predictive model.</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/c0fb58bf.png" alt="Screenshot 2020-05-01 at 01.35.54.png"></figure></p>
+
+<p><strong>Policy Training:</strong></p>
+
+<ul>
+<li>Uses proximal policy optimization algorithm (PPO). Algorithm genereates rollouts in the simulated <span  class="math">\(env'\)</span> and uses them to improve the policy <span  class="math">\(\pi\)</span>.</li>
+<li>To mitigate the compounding of imperfections of the environment model, use shorter rollouts/</li>
+<li>PPO will suffer from shorter rollouts, so in the last step of a rollout, the evaluation of the value function is added as reward.</li>
+</ul>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/c860cf80.png" alt="Screenshot 2020-05-02 at 00.48.31.png"></figure></p>
+
+<p><strong>Experiments:</strong></p>
+
+<p><strong>a. Sample Efficiency</strong></p>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/d7cc2522.png" alt="Screenshot 2020-05-11 at 14.34.40.png"></figure></p>
+
+<ul>
+<li>The primary evaluation of the experiments is to compare the sample efficiency of SimPLe in comparison with SOTA deep RL methods in the literature. The authors compare with Rainbow and PPO.</li>
+<li>The red line illustrates the 100k threshold of SimPLe and every bar larger than this, requires more iterations to achieve a similar performance.</li>
+<li>SimPLe has a much better sample efficiency in a majority of the games.</li>
+</ul>
+
+<p><strong>b. Number of Frames</strong></p>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/649ee5d8.png" alt="Screenshot 2020-05-11 at 14.44.17.png"></figure></p>
+
+<ul>
+<li>Next, the authors varied the number of interaction steps with environment and compared it with model-free PPO.</li>
+<li>From the graphs, it can be seen that SimPLe excels when there is a low amount of data but model-free obtains comparable results when there is more data.</li>
+</ul>
+
+<p><strong>c. Environment Stochasticity:</strong></p>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/8f2aa4ee.png" alt="Screenshot 2020-05-11 at 14.47.08.png"></figure></p>
+
+<ul>
+<li>Certain environments in Atari have an inherent randomness which can't be predicted by a deterministic world model. For example, in <em>Kung Fu Masters</em> a random set of enemies appear after clearing the current screen.</li>
+<li>Since the world model in this case is stochastic, when run on such environments, the world model learned to account for the stochasticity and performs well compared to the Rainbow algorithm on the same games.</li>
+</ul>
+
+<p><strong>Limitations:</strong></p>
+
+<ul>
+<li>Final scores on the whole are lower than the bests SOTA model-free methods. Can possibly be improve with a better dynamics model.</li>
+<li>High variability between runs possibly due to number of complex interactions with the model, policy and data collection.</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://snd96.github.io/paper-a-week/" >
+    &copy; 2020 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="https://snd96.github.io/paper-a-week/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

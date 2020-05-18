@@ -6,10 +6,21 @@
     <description>Recent content in Papers on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Model based Reinforcement Learning for Atari</title>
+      <link>https://snd96.github.io/paper-a-week/papers/model-based-reinforcement-learning-for-atari/</link>
+      <pubDate>Sun, 26 Apr 2020 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/model-based-reinforcement-learning-for-atari/</guid>
+      <description>Model based Reinforcement Learning for Atari https://arxiv.org/pdf/1903.00374.pdf
+Introduction
+ Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations. However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that.</description>
+    </item>
     
     <item>
       <title>Deep Learning without Weight Transport</title>
@@ -17,7 +28,8 @@
       <pubDate>Sun, 19 Apr 2020 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/deep-learning-without-weight-transport/</guid>
-      <description>Deep Learning without Weight Transport  Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:</description>
+      <description>Deep Learning without Weight Transport https://arxiv.org/pdf/1904.05391.pdf
+ Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm. Biologically this is likely impossible as neurons in the brain don&#39;t transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.  Weight-transport problem:</description>
     </item>
     
     <item>
