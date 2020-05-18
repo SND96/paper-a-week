@@ -9,7 +9,10 @@ description: ""
 draft: false
 ---
 
+
 # Deep Learning without Weight Transport
+
+https://arxiv.org/pdf/1904.05391.pdf
 
 * Current algorithms for deep learning rely on weight transport, where the weight matrices used during the forward pass are transmitted backwards during the backpropagation algorithm.
 * Biologically this is likely impossible as neurons in the brain don't transfer they weights between each other. The paper proposes 2 methods which let the feedback path learn appropriate weights accurately and quickly without weigt transport.
