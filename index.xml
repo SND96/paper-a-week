@@ -17,9 +17,8 @@
       <pubDate>Sun, 07 Jun 2020 08:47:11 +0100</pubDate>
       
       <guid>https://snd96.github.io/paper-a-week/papers/albert-a-lite-bert-for-self-supervised-learning-of-language-representations/</guid>
-      <description>Model based Reinforcement Learning for Atari https://arxiv.org/pdf/1903.00374.pdf
-Introduction
- Model-free reinforcement learning has been used to learn effective policies for complex gaems such as Atari games just from the image observations. However, this requires a huge amount of iterations which is not similar to a human. This is possibly due to the fact that humans generate a model of the environment itself so that they can predict what is coming next and learn further from that.</description>
+      <description>ALBERT: A Lite BERT for Self-Supervised Learning of Language Representations https://arxiv.org/pdf/1909.11942.pdf
+Introduction  Increasing the model size when pretraining language represetnations often results in improvement on performance of downstream tasks. However, this comes at the cost of extra computing resources in terms of both memory required and speed. ALBERT introduces two parameter reduction techniques to improve performance of BERT without siginificant negative performance on downstream tasks  Factorizes embedding parametrization Cross-Layer parameter sharingg  ALBERT also introduces a self-supervised loss for sentence-order prediction which replaces the next sentence prediction task in BERT.</description>
     </item>
     
     <item>
