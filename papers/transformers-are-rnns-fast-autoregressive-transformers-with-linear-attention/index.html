@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paper a Week  | Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://snd96.github.io/paper-a-week/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention" />
+<meta property="og:description" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention Introduction  Transformers are currently one of the most dominant category of models being used in Natural Language Processing and also Computer Vision due to being highly effective in a varietyy of tasks. However, this effectiveness comes with a very high computational and memory cost. The bottleneck is mainly causd byy the global receptive field of self-attention which has a computational and memory complexity of \(\mathcal{O}(N^2)\)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snd96.github.io/paper-a-week/papers/transformers-are-rnns-fast-autoregressive-transformers-with-linear-attention/" />
+<meta property="article:published_time" content="2020-08-02T08:47:11+01:00" />
+<meta property="article:modified_time" content="2020-08-02T08:47:11+01:00" />
+<meta itemprop="name" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention">
+<meta itemprop="description" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention Introduction  Transformers are currently one of the most dominant category of models being used in Natural Language Processing and also Computer Vision due to being highly effective in a varietyy of tasks. However, this effectiveness comes with a very high computational and memory cost. The bottleneck is mainly causd byy the global receptive field of self-attention which has a computational and memory complexity of \(\mathcal{O}(N^2)\).">
+
+
+<meta itemprop="datePublished" content="2020-08-02T08:47:11&#43;01:00" />
+<meta itemprop="dateModified" content="2020-08-02T08:47:11&#43;01:00" />
+<meta itemprop="wordCount" content="697">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention"/>
+<meta name="twitter:description" content="Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention Introduction  Transformers are currently one of the most dominant category of models being used in Natural Language Processing and also Computer Vision due to being highly effective in a varietyy of tasks. However, this effectiveness comes with a very high computational and memory cost. The bottleneck is mainly causd byy the global receptive field of self-attention which has a computational and memory complexity of \(\mathcal{O}(N^2)\)."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://snd96.github.io/paper-a-week/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Paper a Week
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        PAPERS
+      </p>
+      <h1 class="f1 athelas mb1">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-08-02T08:47:11&#43;01:00">August 2, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="transformers-are-rnns-fast-autoregressive-transformers-with-linear-attention">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<ul>
+<li>Transformers are currently one of the most dominant category of models being used in Natural Language Processing and also Computer Vision due to being highly effective in a varietyy of tasks.</li>
+<li>However, this effectiveness comes with a very high computational and memory cost. The bottleneck is mainly causd byy the global receptive field of self-attention which has a computational and memory complexity of <span  class="math">\(\mathcal{O}(N^2)\)</span>.</li>
+<li>The paper introduces a <em>linear transformer</em> model that significantly reduces the memory footprint and scales linearly with respect to the context length. This is achieved by kernalization of self-attention and the associative proper  ty of matrix products to calculate self-attention weights.</li>
+</ul>
+
+<h2 id="transformers">Transformers</h2>
+
+<p>Let <span  class="math">\(x\in \mathbb{R}^{N\times F}\)</span> denote a sequence of <span  class="math">\(N\)</span> feature vectors of dimensions <span  class="math">\(F\)</span>. The transformer function is as follows:
+<span  class="math">\(T_l(x)=f_l(A_l(x)+x)\)</span>
+The function <span  class="math">\(f_l(\cdot)\)</span> transforms each feature independently of the others. <span  class="math">\(A_l(\cdot)\)</span> is the self attention function and is the only part of the trasnformer that acts across sequences.
+The self attention function computes for every poistion, a weighted average of the feature representations of all other position with a weight proportional to a similarity score between the representations.</p>
+
+<p>The self attention function <span  class="math">\(A_l(\cdot)\)</span> computes for every position, a weighted average of the feature representations of all other positions with a weight proportional to a similarity score between the representations. There are 3 possible weight matrices. The attention score is calculated using 3 matrices, <span  class="math">\(Q,K \ \text{and}\ V\)</span> which are referred to as the &quot;queries&quot;, &quot;keys&quot; and &quot;values&quot; respectively.</p>
+
+<p>The generalized attention equation is
+<span  class="math">\(V_i'=\frac{\sum^N_{j=1}\text{sim}(Q_i,K_j)V_j}{\sum^N_{j=1}\text{sim}(Q_i,K_j)}\)</span></p>
+
+<h2 id="linearized-attention">Linearized Attention</h2>
+
+<ul>
+<li>The only constraint that needs to be imposed on the similarity operator in order to it define an attention function is that it should be non-negative.</li>
+
+<li><p>Use a kernel <span  class="math">\(\phi(x)\)</span> that satisfies this constraint.
+<span  class="math">\(V_i'=\frac{\phi(Q_i)^T\sum^N_{j=1}\phi(K_j)^TV_j}{\phi(Q_i)^T\sum^N_{j=1}\phi(K_j)^T}\)</span></p></li>
+
+<li><p>The summation terms will be a constant and hence can be computed just once and reused later. This gives time and memory complexity of <span  class="math">\(\mathcal{O}(N)\)</span></p></li>
+</ul>
+
+<h2 id="feature-maps-and-computation-cost">Feature Maps and Computation Cost</h2>
+
+<ul>
+<li>Linear attention requires <span  class="math">\(\mathcal{O}(NCM)\)</span> multiplications where <span  class="math">\(C\)</span> is the dimensionality of the feature maps and <span  class="math">\(M\)</span> is dimensionality of the values. This is compared to <span  class="math">\(\mathcal{O}(N^2\text{max}(D,M))\)</span> for softmax attention where <span  class="math">\(D\)</span> is the dimensionality of the queries and keys.</li>
+<li>The kernel used is <span  class="math">\(\phi(x)=\text{elu}(x)+1\)</span> where elu<span  class="math">\((\cdot)\)</span> denotes the exponential linear unit activation function.</li>
+</ul>
+
+<h2 id="causal-masking">Causal Masking</h2>
+
+<ul>
+<li>The transformer architecture can be used to efficiently train autoregressive models byy maskingg the attention computation such that the $i$-th position can only be influenced by $j$ if and onlyy if <span  class="math">\(j\leq i\)</span>.</li>
+</ul>
+
+<p><span  class="math">\(V_i'=\frac{\phi(Q_i)^T\sum^i_{j=1}\phi(K_j)^TV_j}{\phi(Q_i)^T\sum^i_{j=1}\phi(K_j)^T}\)</span><br>
+<span  class="math">\(V_i'=\frac{\phi(Q_i)^TS_i}{\phi(Q_i)^TZ_i}\)</span></p>
+
+<ul>
+<li>Where <span  class="math">\(S_i\)</span> and <span  class="math">\(Z_i\)</span> can be computed from <span  class="math">\(S_{i-1}\)</span> and <span  class="math">\(Z_{i-1}\)</span> in constant time hence making the computational complexity of linear transformers with causal masking linear with respect to the sequence length.</li>
+</ul>
+
+<h2 id="gradient-computation">Gradient Computation</h2>
+
+<ul>
+<li>To ensure efficieny, the gradients of the numerator are derived as cumulative sums. This allows both the forward and backward pass of causal linear attention to be in linear time and constant memory.</li>
+</ul>
+
+<p><span  class="math">\(\nabla_{\phi(Q_i)}\mathcal{L}=\nabla_{\bar{V}}\mathcal{L}(\sum^i_{j=1}\phi(K_j)V_j^T)\)</span><br>
+<span  class="math">\(\nabla_{\phi(K_i)}\mathcal{L}=(\sum^N_{j=1}\phi(Q_j)(\nabla_{\bar{V}}\mathcal{L})^TV_i\)</span><br>
+<span  class="math">\(\nabla_{\phi(Q_i)}\mathcal{L}=(\sum^N_{j=1}\phi(Q_j)(\nabla_{\bar{V}}\mathcal{L})^T)^T\phi(K_i)\)</span></p>
+
+<ul>
+<li>The cumulative sum terms are computed in linear time and require constant memory with regard to sequence length.</li>
+</ul>
+
+<h2 id="training-and-inference">Training and Inference</h2>
+
+<ul>
+<li>When training an autoregressive model, the full ground truth sequence is available which allows parallelisation of the transformer function and attention equations. This makes transformers more efficient to train than recurrent neural networks.</li>
+<li>However during inference, only the current time step output is the input for the next time step, making them impossible to parallelize. Moreover, the cost per timestep for transformers is not constant and instead scales with the square of the sequence length because the attention must be computed for all previous time steps.</li>
+<li>The method outlined in the paper fixes this problem by making inference a constant by storing the <span  class="math">\(\phi(K_j)V_j^t\)</span> matrix as an internal state and updating it at every time step like a recurrent neural network.</li>
+</ul>
+
+<h2 id="transformers-are-rnns">Transformers are RNNs</h2>
+
+<ul>
+<li>From the causal masking formulation and the training and inference discussion, it can be seen that any transformer layer with causal masking can be written as a model that give an input, modifies an internal state and then predicts an output, namely a recurrent neural network.</li>
+<li>The transformer equations can also be formulated as RNN equations.</li>
+</ul>
+
+<p><span  class="math">\[s=0,\]</span></p>
+
+<p><span  class="math">\[z_0=0,\]</span></p>
+
+<p><span  class="math">\[s_i=s_{i-1}+\phi(x_iW_K)(x_iW_V)^T,\]</span></p>
+
+<p><span  class="math">\[z_i=z_{i-1}+\phi(x_iW_k),\]</span></p>
+
+<p><span  class="math">\[y_i=f_l(\frac{\phi(x_iW_Q)^Ts_i}{\phi(x_iW_Q)^Tz_i}+x_i)\]</span></p>
+
+<h2 id="experiments-and-results">Experiments and Results</h2>
+
+<p><figure><img src="https://snd96.github.io/paper-a-week/attachments/71cb65c2.png" alt="table1.png"></figure>
+<figure><img src="https://snd96.github.io/paper-a-week/attachments/b28269e4.png" alt="table2.png"></figure>
+<figure><img src="https://snd96.github.io/paper-a-week/attachments/3c1fe009.png" alt="table3.png"></figure></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <html>
+<body>
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://snd96.github.io/paper-a-week/" >
+    &copy; 2020 Paper a Week
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+
+  <script src="https://snd96.github.io/paper-a-week/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

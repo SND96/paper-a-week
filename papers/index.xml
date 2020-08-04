@@ -6,10 +6,19 @@
     <description>Recent content in Papers on Paper a Week</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jun 2020 08:47:11 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://snd96.github.io/paper-a-week/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</title>
+      <link>https://snd96.github.io/paper-a-week/papers/transformers-are-rnns-fast-autoregressive-transformers-with-linear-attention/</link>
+      <pubDate>Sun, 02 Aug 2020 08:47:11 +0100</pubDate>
+      
+      <guid>https://snd96.github.io/paper-a-week/papers/transformers-are-rnns-fast-autoregressive-transformers-with-linear-attention/</guid>
+      <description>Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention Introduction  Transformers are currently one of the most dominant category of models being used in Natural Language Processing and also Computer Vision due to being highly effective in a varietyy of tasks. However, this effectiveness comes with a very high computational and memory cost. The bottleneck is mainly causd byy the global receptive field of self-attention which has a computational and memory complexity of \(\mathcal{O}(N^2)\).</description>
+    </item>
     
     <item>
       <title>ALBERT: A Lite BERT for Self-Supervised Learning of Language Representations</title>
